@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAX ADOPT CENTER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #4e54c8, #8a64d0);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .logo i {
+            font-size: 2.8rem;
+            color: #ffcb6b;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 20px;
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            color: #555;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #4e54c8;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(78, 84, 200, 0.3);
+        }
+        
+        .btn:hover {
+            background: #3a3fb8;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(78, 84, 200, 0.4);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .img-info {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .img-info h3 {
+            margin-bottom: 8px;
+            color: #4e54c8;
+        }
+        
+        .img-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .adoption-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 3rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .adoption-info h2 {
+            color: #4e54c8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .info-card {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .info-card i {
+            font-size: 2.5rem;
+            color: #8a64d0;
+            margin-bottom: 15px;
+        }
+        
+        .info-card h3 {
+            margin-bottom: 12px;
+            color: #4e54c8;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #4e54c8, #8a64d0);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #ffcb6b;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                padding: 10px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-paw"></i>
+            <h1>MAX ADOPT CENTER</h1>
+        </div>
+        <p class="tagline">Find your new best friend and give a loving home to a pet in need</p>
+    </header>
+    
+    <div class="container">
+        <div class="intro">
+            <p>Meet Max, a wonderful companion looking for his forever home. Max is friendly, playful, and full of love to give. Browse through his photos and learn how you can make him part of your family.</p>
+            <a href="#contact" class="btn">Adopt Max Now</a>
+        </div>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="1.jpg.jpg" alt="Max photo">
+                <div class="img-info">
+                    <h3>Max Playing</h3>
+                    <p>Max loves playing fetch at the park</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="2.jpg" alt="Max resting">
+                <div class="img-info">
+                    <h3>Max Resting</h3>
+                    <p>After a long day of play, Max enjoys napping</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="3.jpg" alt="Max with his favorite toy">
+                <div class="img-info">
+                    <h3>Max with Toy</h3>
+                    <p>This is Max's favorite squeaky toy</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="4.jpg" alt="Max enjoying treats">
+                <div class="img-info">
+                    <h3>Max with Treats</h3>
+                    <p>Max will do anything for a tasty treat</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="5.jpg" alt="Max being curious">
+                <div class="img-info">
+                    <h3>Curious Max</h3>
+                    <p>Max is always exploring new things</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="6.jpg" alt="Max being affectionate">
+                <div class="img-info">
+                    <h3>Affectionate Max</h3>
+                    <p>Max loves cuddles and attention</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="adoption-info">
+            <h2>Why Adopt Max?</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Loving Companion</h3>
+                    <p>Max is a 2-year-old Labrador mix who is extremely affectionate and loyal.</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Vaccinated & Healthy</h3>
+                    <p>Max is fully vaccinated, neutered, and has a clean bill of health.</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Well Trained</h3>
+                    <p>Max is housebroken, knows basic commands, and walks well on a leash.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer id="contact">
+        <div class="contact-info">
+            <h3>Contact Us to Adopt Max</h3>
+            <p><i class="fas fa-envelope"></i> Email: shivam2007maurya16@gmail.com</p>
+            <p><i class="fas fa-phone"></i> Phone: 7905272126</p>
+            <p><i class="fas fa-map-marker-alt"></i> Address: Sabri Fatak Jangi Road, Mirzapur 231001</p>
+        </div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2023 MAX ADOPT CENTER. All rights reserved.</p>
+    </footer>
+</body>
+</html>
